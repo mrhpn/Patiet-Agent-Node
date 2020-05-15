@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Ko Aung Htay | Resigter</title>
+		<link rel="stylesheet" href="/assets/css/jquery.datetimepicker.css">
+		<link rel="stylesheet" href="/assets/css/style.css">
+		<link rel="stylesheet" href="/assets/css/media-queries.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<header class="header">
+				<div class="header__block">
+					<p class="header__block--small pyidaungsu">ကိုအောင်ဌေး</p>
+					<p class="header__block--hero">Grand Hantha
+						<span class="pyidaungsu">ဟင်္သာတခရိုင် ကိုယ်စားလှယ်</span>
+					</p>
+					<nav>
+						<ul>
+							<li class="active"><a href="/">Patient Register Form</a></li>
+							<li><a href="/contact">Contact</a></li>
+						</ul>
+					</nav>
+				</div>
+			</header>
+
+			{{#if success }}
+				<div class="success">
+					<div class="message">
+						<div class="message__hero">Successfully registered!</div>
+						<span style="font-size: 1.5rem;">We'll shortly contact you back via SMS.</span>
+						<span style="font-size: 1.5rem;">Thanks for working with us.</span>
+					</div>
+					<div class="close">Close</div>
+				</div>
+			{{/if}}
+
+			<form action="/register" method="POST">
+				<div class="form">
+
+					<!-- Patient Information -->
+
+					<div class="form__part">
+						<div class="form__part--label">
+							Patient information
+							<span>Please fill out the fields to register</span>
+						</div>
+						<div class="form__part--fields full-width">
+							{{!-- name --}}
+							<div class=" fields">
+								<div class="form__group full-width">
+									<label for="name">Name<span class="text-danger">*</span>
+										{{#if errors.name}} <span
+												class="text-danger italic text-small">{{ errors.name }}</span> {{/if}}
+									</label>
+									<input type="text" name="name" {{#if errors.name }} class="error-border error-bg-input"
+										{{/if}} id="name" {{#if oldValues.name }} value="{{ oldValues.name }}" {{/if}}>
+								</div>
+								{{!-- gender --}}
+								<div class="form__group full-width">
+									<label for="gender">Gender<span class="text-danger">*</span>{{#if errors.gender}} <span
+												class="text-danger italic text-small">{{ errors.gender }}</span>
+										{{/if}}</label>
+									<select name="gender" id="gender" {{#if errors.gender }}
+										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+										<option selected disabled>Choose</option>
+										<option value="male" {{#ifEquals oldValues.gender "male"}} selected {{/ifEquals}}>
+											Male
+										</option>
+										<option value="female" {{#ifEquals oldValues.gender "female"}} selected {{/ifEquals}}>
+											Female
+										</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- fatherName -->
+							<div class="form__group">
+								<label for="father_name">Father Name<span class="text-danger">*</span>{{#if errors.fatherName}}
+										<span class="text-danger italic text-small">{{ errors.fatherName }}</span>
+									{{/if}}</label>
+								<input type="text" name="fatherName" id="father_name" {{#if errors.fatherName }}
+									class="error-border error-bg-input" {{/if}} {{#if oldValues.fatherName }}
+									value="{{oldValues.fatherName}}" {{/if}}>
+							</div>
+
+							<!-- birthday & age -->
+							<div class="fields">
+								<div class="form__group full-width">
+									<label for="birthday">Birthday<span class="text-danger">*</span>{{#if errors.birthday}}
+											<span class="text-danger italic text-small">{{errors.birthday}}</span>
+										{{/if}}</label>
+									<input type="text" name="birthday" id="birthday" readonly="readonly" placeholder="DD-MM-YY"
+										{{#if errors.birthday }} class="error-border error-bg-input pointer-cursor" {{else}}
+										class="pointer-cursor" {{/if}} {{#if oldValues.birthday }}
+										value="{{oldValues.birthday}}" {{/if}}>
+								</div>
+								<div class="form__group full-width">
+									<label for="age">Age<span class="text-danger">*</span>{{#if errors.age}} <span
+												class="text-danger italic text-small">{{ errors.age }}</span> {{/if}}</label>
+									<input type="text" name="age" id="age" readonly="readonly" {{#if errors.age }}
+										class="error-border error-bg-input" {{/if}} {{#if oldValues.age }}
+										value="{{oldValues.age}}" {{/if}}>
+								</div>
+							</div>
+
+							<!-- nrc -->
+							<div class="fields">
+								<div class="form__group full-width">
+									<label for="nrc-1">NRC<span class="text-danger">*</span>
+
+										{{#if errors.nrc}} <span class="text-danger italic text-small">{{ errors.nrc }}</span>
+										{{/if}}
+
+									</label>
+
+									<div class="form__group--1 full-width">
+										<div {{#if errors.nrc }} class="row full-width error-border error-bg-input" {{else}}
+											class="row full-width" {{/if}}>
+											<select name="nrcState" id="state">
+												<option value="Choose" selected disabled>State</option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+												<option value="13">13</option>
+												<option value="14">14</option>
+											</select>
+											<select name="nrcTownship" id="township" {{#if errors.nrcTownship }}
+												class="error-border error-bg-input" {{/if}}>
+												<option selected disabled>Townships</option>
+											</select>
+											<select name="nrcType" id="type" {{#if errors.nrcType }}
+												class="error-border error-bg-input" {{/if}}>
+												<option selected disabled>Types</option>
+												<option value="N">N</option>
+												<option value="Y">Y</option>
+												<option value="T">T</option>
+											</select>
+										</div>
+										<div class="row full-width">
+											<input type="text" name="nrcNumber" placeholder="123456" {{#if errors.nrc }}
+												class="full-width error-border error-bg-input" {{else}} class="full-width"
+												{{/if}}>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="hr__line"></div>
+
+					<!-- Visit Information -->
+					<div class="form__part">
+						<div class="form__part--label">
+							Visit information
+							<span>Why you want to register</span>
+						</div>
+						<div class="form__part--fields full-width">
+							<!-- visiting_date -->
+							<div class="form__group">
+								<label for="visiting-date">Visiting Date<span
+										class="text-danger">*</span>{{#if errors.visitingDate}}
+										<span class="text-danger italic text-small">{{errors.visitingDate}}</span>
+									{{/if}}</label>
+								<input type="text" name="visitingDate" id="visiting-date" placeholder="DD-MM-YY"
+									readonly="readonly" {{#if errors.visitingDate }}
+									class="error-border error-bg-input pointer-cursor" {{else}} class="pointer-cursor" {{/if}}
+									{{#if oldValues.visitingDate }} value="{{oldValues.visitingDate}}" {{/if}}>
+							</div>
+
+							<!-- referal_reason -->
+							<div class="form__group">
+								<label for="referal-reason">Referal Reason {{#if errors.referalReason}}
+										<span class="text-danger italic text-small">{{errors.referalReason}}</span>
+									{{/if}}</label>
+								<textarea name="referalReason" id="referal-reason" cols="auto"
+									rows="10">{{#if oldValues.referalReason }}{{oldValues.referalReason}}{{/if}}</textarea>
+							</div>
+
+							<!-- disease & doctor -->
+							<div class="fields">
+								<div class="form__group full-width">
+									<label for="disease">Disease<span class="text-danger">*</span>{{#if errors.disease}}
+											<span class="text-danger italic text-small">{{errors.disease}}</span>
+										{{/if}}</label>
+									<select name="disease" id="disease" {{#if errors.disease }}
+										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+										<option selected disabled>Choose</option>
+										<option value="heart">Heart</option>
+										<option value="brain">Brain</option>
+										<option value="...">...</option>
+									</select>
+								</div>
+
+								<div class="form__group full-width">
+									<label for="doctor">Doctor<span class="text-danger">*</span>{{#if errors.doctor}}
+											<span class="text-danger italic text-small">{{errors.doctor}}</span>
+										{{/if}}</label>
+									<select name="doctor" id="doctor" {{#if errors.doctor }}
+										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+										<option selected disabled>Choose</option>
+										<option value="m-khin-maung-lwin">Dr.Khin Maung Lwin</option>
+										<option value="m-phyo-thiha">Dr.Phyo Thiha</option>
+										<option value="f-laurel">Dr.Laurel</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="hr__line"></div>
+
+					<!-- Contact Person -->
+					<div class="form__part">
+						<div class="form__part--label">
+							Contact person information
+							<span>Whome we contact to</span>
+						</div>
+						<div class="form__part--fields full-width">
+							<!-- contact_person_name & relation & contact_person_phone -->
+							<div class="fields">
+								<div class="form__group full-width">
+									<label for="contactPerson">Contact Person Name<span class="text-danger">*</span></label>
+									<input type="text" name="contactPersonName" id="contact-person"
+										{{#if errors.contactPersonName }} class="error-border error-bg-input m-b-0" {{/if}}
+										{{#if oldValues.contactPersonName }} value="{{ oldValues.contactPersonName }}" {{/if}}>
+									{{#if errors.contactPersonName}} <span
+											class="text-danger italic text-small">{{ errors.contactPersonName }}</span>
+									{{/if}}
+								</div>
+								<div class="form__group full-width">
+									<label for="relation">Relation<span class="text-danger">*</span>{{#if errors.relation}}
+											<span class="text-danger italic text-small">{{ errors.relation }}</span>
+										{{/if}}</label>
+									<select name="relation" id="relation" {{#if errors.relation }}
+										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+										<option selected disabled>Choose</option>
+										<option value="uncle" {{#ifEquals oldValues.relation "uncle"}} selected {{/ifEquals}}>
+											Uncle</option>
+										<option value="aunty" {{#ifEquals oldValues.relation "aunty"}} selected {{/ifEquals}}>
+											Aunty</option>
+									</select>
+								</div>
+							</div>
+
+							<!-- phone number -->
+							<div class="form__group">
+								<label for="contact-person-phone">Contact Person Phone<span
+										class="text-danger">*</span></label>
+								<input type="text" name="contactPersonPhone" id="contact-person-phone"
+									{{#if errors.contactPersonPhone }} class="error-border error-bg-input m-b-0" {{/if}}
+									{{#if oldValues.contactPersonPhone }} value="{{ oldValues.contactPersonPhone }}" {{/if}}>
+								{{#if errors.contactPersonPhone}} <span
+										class="text-danger italic text-small">{{ errors.contactPersonPhone }}</span>
+								{{/if}}
+							</div>
+
+						</div>
+					</div>
+
+					<div class="hr__line"></div>
+
+					<button type="submit" class="btn btn-primary">
+						Register Information
+					</button>
+
+					{{!-- <input type="submit" class="btn btn-primary" value="Register Information"> --}}
+				</div>
+			</form>
+		</div>
+
+		<!-- Js: Jquery -->
+		<script src="/assets/js/jquery.min.js"></script>
+
+		<!-- Js: datepicker -->
+		<script src="/assets/js/jquery.datetimepicker.full.js"></script>
+		<script src="/assets/js/datePicker.js"></script>
+
+		<!-- <script type="text/javascript" src="nrc-data.json"></script> -->
+		<script src="/assets/js/index.js"></script>
+	</body>
+
+</html>
