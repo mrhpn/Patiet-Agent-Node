@@ -3,12 +3,14 @@ const domStrings = {
   township: "#township",
   close: ".close",
   successBox: ".success",
+  dangerBox: ".danger",
 };
 
 const inputState = document.querySelector(domStrings.state);
 const inputTownship = document.querySelector(domStrings.township);
 const closeBtn = document.querySelector(domStrings.close);
 const successBox = document.querySelector(domStrings.successBox);
+const dangerBox = document.querySelector(domStrings.dangerBox);
 
 state.addEventListener("change", function () {
   const state = parseInt(inputState.value);
@@ -28,9 +30,14 @@ state.addEventListener("change", function () {
     .catch((err) => console.log(err));
 });
 
-if (closeBtn) {
+if (closeBtn && successBox) {
   closeBtn.addEventListener("click", function () {
     successBox.parentNode.removeChild(successBox);
+    window.location = "/";
+  });
+} else if (closeBtn && dangerBox) {
+  closeBtn.addEventListener("click", function () {
+    dangerBox.parentNode.removeChild(dangerBox);
     window.location = "/";
   });
 }

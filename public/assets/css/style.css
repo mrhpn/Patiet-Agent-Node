@@ -22,6 +22,7 @@
 :root {
   --white: white;
   --red: red;
+  --red-200: rgb(216, 167, 4);
   --gold: gold;
   --dark-gray: rgb(80, 86, 94);
 
@@ -166,10 +167,10 @@ body {
 /***************************
 /* +Success
 ****************************/
-.success {
+.success,
+.danger {
   display: flex;
   align-items: center;
-  background-color: var(--bg-color-nav);
   color: white;
   margin-bottom: 2rem;
   font-size: 2rem;
@@ -187,7 +188,16 @@ body {
   -o-transition: all 0.5s ease-in-out;
 }
 
-.success .message {
+.success-msg {
+  background-color: var(--bg-color-nav);
+}
+
+.danger-msg {
+  background-color: var(--red-200);
+}
+
+.success .message,
+.danger .message {
   flex: 1;
   display: flex;
   flex-direction: column;

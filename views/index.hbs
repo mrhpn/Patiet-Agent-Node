@@ -4,6 +4,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="/assets/img/favicon.ico" type="image/x-icon">
 		<title>Ko Aung Htay | Resigter</title>
 		<link rel="stylesheet" href="/assets/css/jquery.datetimepicker.css">
 		<link rel="stylesheet" href="/assets/css/style.css">
@@ -28,10 +29,22 @@
 			</header>
 
 			{{#if success }}
-				<div class="success">
+				<div class="success success-msg">
 					<div class="message">
 						<div class="message__hero">Successfully registered!</div>
 						<span style="font-size: 1.5rem;">We'll shortly contact you back via SMS.</span>
+						<span style="font-size: 1.5rem;">Thanks for working with us.</span>
+					</div>
+					<div class="close">Close</div>
+				</div>
+			{{/if}}
+
+			{{#if err }}
+				<div class="danger danger-msg">
+					<div class="message">
+						<div class="message__hero">Something went wrong!</div>
+						<span style="font-size: 1.5rem;">- Fill up in every red-star-sign-showing inputs. </span>
+						<span style="font-size: 1.5rem;">- Check your Internet Connection. </span>
 						<span style="font-size: 1.5rem;">Thanks for working with us.</span>
 					</div>
 					<div class="close">Close</div>
