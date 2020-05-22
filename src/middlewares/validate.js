@@ -293,6 +293,7 @@ module.exports = (req, res, next) => {
     if (req.body.contactPersonPhone)
       oldValues.contactPersonPhone = req.body.contactPersonPhone;
 
+    res.statusCode = 400;
     res.render("index", { oldValues, errors });
   }
 
