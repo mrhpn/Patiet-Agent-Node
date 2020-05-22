@@ -8,10 +8,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
 app.use(express.static(`${__dirname}/../public`));
 
-require("./startup/logging");
 require("./startup/handlebarsHelper")();
-require("./startup/db")();
+require("./startup/logging")();
 require("./startup/routes")(app);
+require("./startup/db")();
+require("./startup/prod")(app);
 app.use(error);
 
 const PORT = process.env.PORT || 3000;
