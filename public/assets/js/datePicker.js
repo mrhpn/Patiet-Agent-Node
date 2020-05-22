@@ -1,7 +1,7 @@
 $(document).ready(function () {
   $("#birthday").datetimepicker({
-    format: "d-m-Y",
-    formatDate: "d-m-Y",
+    format: "Y-m-d",
+    formatDate: "Y-m-d",
     startDate: 1980 / 01 / 01,
     timepicker: false,
     inline: false,
@@ -16,13 +16,13 @@ $(document).ready(function () {
     const birthday = $("#birthday").val();
     if (birthday === "") return;
 
-    const birthYear = birthday.split("-").slice(-1)[0];
+    const birthYear = Number(birthday.split("-")[0]);
     const currentYear = new Date().getFullYear();
     let age = currentYear - birthYear;
 
     // if age is less than 5, compute both year and month
     if (age < 5) {
-      const birthMonth = Number(birthday.split("-").slice()[1]);
+      const birthMonth = Number(birthday.split("-")[1]);
       const currentMonth = new Date().getMonth() + 1;
       const monthAge = currentMonth - birthMonth;
 
@@ -53,8 +53,8 @@ $(document).ready(function () {
   });
 
   $("#visiting-date").datetimepicker({
-    format: "d-m-Y",
-    formatDate: "d-m-Y",
+    format: "Y-m-d",
+    formatDate: "Y-m-d",
     timepicker: false,
     inline: false,
     todayButton: false,

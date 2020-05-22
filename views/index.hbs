@@ -53,19 +53,15 @@
 							<div class=" fields">
 								<div class="form__group full-width">
 									<label for="name">Name<span class="text-danger">*</span>
-										{{#if errors.name}} <span
-												class="text-danger italic text-small">{{ errors.name }}</span> {{/if}}
+										{{#if errors.name}} <span class="text-danger italic text-small">{{ errors.name }}</span> {{/if}}
 									</label>
-									<input type="text" name="name" {{#if errors.name }} class="error-border error-bg-input"
-										{{/if}} id="name" {{#if oldValues.name }} value="{{ oldValues.name }}" {{/if}}>
+									<input type="text" name="name" {{#if errors.name }} class="error-border error-bg-input" {{/if}} id="name" {{#if oldValues.name }} value="{{ oldValues.name }}" {{/if}}>
 								</div>
 								{{!-- gender --}}
 								<div class="form__group full-width">
-									<label for="gender">Gender<span class="text-danger">*</span>{{#if errors.gender}} <span
-												class="text-danger italic text-small">{{ errors.gender }}</span>
+									<label for="gender">Gender<span class="text-danger">*</span>{{#if errors.gender}} <span class="text-danger italic text-small">{{ errors.gender }}</span>
 										{{/if}}</label>
-									<select name="gender" id="gender" {{#if errors.gender }}
-										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+									<select name="gender" id="gender" {{#if errors.gender }} class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
 										<option selected disabled>Choose</option>
 										<option value="male" {{#ifEquals oldValues.gender "male"}} selected {{/ifEquals}}>
 											Male
@@ -82,9 +78,7 @@
 								<label for="father_name">Father Name<span class="text-danger">*</span>{{#if errors.fatherName}}
 										<span class="text-danger italic text-small">{{ errors.fatherName }}</span>
 									{{/if}}</label>
-								<input type="text" name="fatherName" id="father_name" {{#if errors.fatherName }}
-									class="error-border error-bg-input" {{/if}} {{#if oldValues.fatherName }}
-									value="{{oldValues.fatherName}}" {{/if}}>
+								<input type="text" name="fatherName" id="father_name" {{#if errors.fatherName }} class="error-border error-bg-input" {{/if}} {{#if oldValues.fatherName }} value="{{oldValues.fatherName}}" {{/if}}>
 							</div>
 
 							<!-- birthday & age -->
@@ -93,17 +87,11 @@
 									<label for="birthday">Birthday<span class="text-danger">*</span>{{#if errors.birthday}}
 											<span class="text-danger italic text-small">{{errors.birthday}}</span>
 										{{/if}}</label>
-									<input type="text" name="birthday" id="birthday" readonly="readonly" placeholder="DD-MM-YY"
-										{{#if errors.birthday }} class="error-border error-bg-input pointer-cursor" {{else}}
-										class="pointer-cursor" {{/if}} {{#if oldValues.birthday }}
-										value="{{oldValues.birthday}}" {{/if}}>
+									<input type="text" name="birthday" id="birthday" readonly="readonly" placeholder="YYYY-MM-DD" {{#if errors.birthday }} class="error-border error-bg-input pointer-cursor" {{else}} class="pointer-cursor" {{/if}} {{#if oldValues.birthday }} value="{{oldValues.birthday}}" {{/if}}>
 								</div>
 								<div class="form__group full-width">
-									<label for="age">Age<span class="text-danger">*</span>{{#if errors.age}} <span
-												class="text-danger italic text-small">{{ errors.age }}</span> {{/if}}</label>
-									<input type="text" name="age" id="age" readonly="readonly" {{#if errors.age }}
-										class="error-border error-bg-input" {{/if}} {{#if oldValues.age }}
-										value="{{oldValues.age}}" {{/if}}>
+									<label for="age">Age<span class="text-danger">*</span>{{#if errors.age}} <span class="text-danger italic text-small">{{ errors.age }}</span> {{/if}}</label>
+									<input type="text" name="age" id="age" readonly="readonly" {{#if errors.age }} class="error-border error-bg-input" {{/if}} {{#if oldValues.age }} value="{{oldValues.age}}" {{/if}}>
 								</div>
 							</div>
 
@@ -118,8 +106,7 @@
 									</label>
 
 									<div class="form__group--1 full-width">
-										<div {{#if errors.nrc }} class="row full-width error-border error-bg-input" {{else}}
-											class="row full-width" {{/if}}>
+										<div {{#if errors.nrc }} class="row full-width error-border error-bg-input" {{else}} class="row full-width" {{/if}}>
 											<select name="nrcState" id="state">
 												<option value="Choose" selected disabled>State</option>
 												<option value="1">1</option>
@@ -137,12 +124,10 @@
 												<option value="13">13</option>
 												<option value="14">14</option>
 											</select>
-											<select name="nrcTownship" id="township" {{#if errors.nrcTownship }}
-												class="error-border error-bg-input" {{/if}}>
+											<select name="nrcTownship" id="township" {{#if errors.nrcTownship }} class="error-border error-bg-input" {{/if}}>
 												<option selected disabled>Townships</option>
 											</select>
-											<select name="nrcType" id="type" {{#if errors.nrcType }}
-												class="error-border error-bg-input" {{/if}}>
+											<select name="nrcType" id="type" {{#if errors.nrcType }} class="error-border error-bg-input" {{/if}}>
 												<option selected disabled>Types</option>
 												<option value="N">N</option>
 												<option value="Y">Y</option>
@@ -150,9 +135,7 @@
 											</select>
 										</div>
 										<div class="row full-width">
-											<input type="text" name="nrcNumber" placeholder="123456" {{#if errors.nrc }}
-												class="full-width error-border error-bg-input" {{else}} class="full-width"
-												{{/if}}>
+											<input type="text" name="nrcNumber" placeholder="123456" {{#if errors.nrc }} class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
 										</div>
 									</div>
 								</div>
@@ -171,14 +154,10 @@
 						<div class="form__part--fields full-width">
 							<!-- visiting_date -->
 							<div class="form__group">
-								<label for="visiting-date">Visiting Date<span
-										class="text-danger">*</span>{{#if errors.visitingDate}}
+								<label for="visiting-date">Visiting Date<span class="text-danger">*</span>{{#if errors.visitingDate}}
 										<span class="text-danger italic text-small">{{errors.visitingDate}}</span>
 									{{/if}}</label>
-								<input type="text" name="visitingDate" id="visiting-date" placeholder="DD-MM-YY"
-									readonly="readonly" {{#if errors.visitingDate }}
-									class="error-border error-bg-input pointer-cursor" {{else}} class="pointer-cursor" {{/if}}
-									{{#if oldValues.visitingDate }} value="{{oldValues.visitingDate}}" {{/if}}>
+								<input type="text" name="visitingDate" id="visiting-date" placeholder="YYYY-MM-DD" readonly="readonly" {{#if errors.visitingDate }} class="error-border error-bg-input pointer-cursor" {{else}} class="pointer-cursor" {{/if}} {{#if oldValues.visitingDate }} value="{{oldValues.visitingDate}}" {{/if}}>
 							</div>
 
 							<!-- referal_reason -->
@@ -186,8 +165,7 @@
 								<label for="referal-reason">Referal Reason {{#if errors.referalReason}}
 										<span class="text-danger italic text-small">{{errors.referalReason}}</span>
 									{{/if}}</label>
-								<textarea name="referalReason" id="referal-reason" cols="auto"
-									rows="10">{{#if oldValues.referalReason }}{{oldValues.referalReason}}{{/if}}</textarea>
+								<textarea name="referalReason" id="referal-reason" cols="auto" rows="10">{{#if oldValues.referalReason }}{{oldValues.referalReason}}{{/if}}</textarea>
 							</div>
 
 							<!-- disease & doctor -->
@@ -196,8 +174,7 @@
 									<label for="disease">Disease<span class="text-danger">*</span>{{#if errors.disease}}
 											<span class="text-danger italic text-small">{{errors.disease}}</span>
 										{{/if}}</label>
-									<select name="disease" id="disease" {{#if errors.disease }}
-										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+									<select name="disease" id="disease" {{#if errors.disease }} class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
 										<option selected disabled>Choose</option>
 										<option value="heart">Heart</option>
 										<option value="brain">Brain</option>
@@ -209,8 +186,7 @@
 									<label for="doctor">Doctor<span class="text-danger">*</span>{{#if errors.doctor}}
 											<span class="text-danger italic text-small">{{errors.doctor}}</span>
 										{{/if}}</label>
-									<select name="doctor" id="doctor" {{#if errors.doctor }}
-										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+									<select name="doctor" id="doctor" {{#if errors.doctor }} class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
 										<option selected disabled>Choose</option>
 										<option value="m-khin-maung-lwin">Dr.Khin Maung Lwin</option>
 										<option value="m-phyo-thiha">Dr.Phyo Thiha</option>
@@ -234,19 +210,15 @@
 							<div class="fields">
 								<div class="form__group full-width">
 									<label for="contactPerson">Contact Person Name<span class="text-danger">*</span></label>
-									<input type="text" name="contactPersonName" id="contact-person"
-										{{#if errors.contactPersonName }} class="error-border error-bg-input m-b-0" {{/if}}
-										{{#if oldValues.contactPersonName }} value="{{ oldValues.contactPersonName }}" {{/if}}>
-									{{#if errors.contactPersonName}} <span
-											class="text-danger italic text-small">{{ errors.contactPersonName }}</span>
+									<input type="text" name="contactPersonName" id="contact-person" {{#if errors.contactPersonName }} class="error-border error-bg-input m-b-0" {{/if}} {{#if oldValues.contactPersonName }} value="{{ oldValues.contactPersonName }}" {{/if}}>
+									{{#if errors.contactPersonName}} <span class="text-danger italic text-small">{{ errors.contactPersonName }}</span>
 									{{/if}}
 								</div>
 								<div class="form__group full-width">
 									<label for="relation">Relation<span class="text-danger">*</span>{{#if errors.relation}}
 											<span class="text-danger italic text-small">{{ errors.relation }}</span>
 										{{/if}}</label>
-									<select name="relation" id="relation" {{#if errors.relation }}
-										class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
+									<select name="relation" id="relation" {{#if errors.relation }} class="full-width error-border error-bg-input" {{else}} class="full-width" {{/if}}>
 										<option selected disabled>Choose</option>
 										<option value="uncle" {{#ifEquals oldValues.relation "uncle"}} selected {{/ifEquals}}>
 											Uncle</option>
@@ -258,13 +230,9 @@
 
 							<!-- phone number -->
 							<div class="form__group">
-								<label for="contact-person-phone">Contact Person Phone<span
-										class="text-danger">*</span></label>
-								<input type="text" name="contactPersonPhone" id="contact-person-phone"
-									{{#if errors.contactPersonPhone }} class="error-border error-bg-input m-b-0" {{/if}}
-									{{#if oldValues.contactPersonPhone }} value="{{ oldValues.contactPersonPhone }}" {{/if}}>
-								{{#if errors.contactPersonPhone}} <span
-										class="text-danger italic text-small">{{ errors.contactPersonPhone }}</span>
+								<label for="contact-person-phone">Contact Person Phone<span class="text-danger">*</span></label>
+								<input type="text" name="contactPersonPhone" id="contact-person-phone" {{#if errors.contactPersonPhone }} class="error-border error-bg-input m-b-0" {{/if}} {{#if oldValues.contactPersonPhone }} value="{{ oldValues.contactPersonPhone }}" {{/if}}>
+								{{#if errors.contactPersonPhone}} <span class="text-danger italic text-small">{{ errors.contactPersonPhone }}</span>
 								{{/if}}
 							</div>
 

@@ -1,4 +1,3 @@
-const express = require("express");
 const Joi = require("joi");
 
 module.exports = (req, res, next) => {
@@ -65,7 +64,7 @@ module.exports = (req, res, next) => {
         return errors;
       }),
     birthday: Joi.string()
-      .regex(/^(0?[1-9]|[12][0-9]|3[01])[-](0?[1-9]|1[012])[-]\d{4}$/)
+      .regex(/^(\d{4})[-](0?[1-9]|1[012])[-](0?[1-9]|[12][0-9]|3[01])$/)
       .required()
       .error((errors) => {
         errors.forEach((err) => {
@@ -125,7 +124,7 @@ module.exports = (req, res, next) => {
         message: "NRC: Fill valid number",
       })),
     visitingDate: Joi.string()
-      .regex(/^(0?[1-9]|[12][0-9]|3[01])[-](0?[1-9]|1[012])[-]\d{4}$/)
+      .regex(/^(\d{4})[-](0?[1-9]|1[012])[-](0?[1-9]|[12][0-9]|3[01])$/)
       .required()
       .error((errors) => {
         errors.forEach((err) => {
@@ -293,7 +292,6 @@ module.exports = (req, res, next) => {
     if (req.body.contactPersonPhone)
       oldValues.contactPersonPhone = req.body.contactPersonPhone;
 
-    res.statusCode = 400;
     res.render("index", { oldValues, errors });
   }
 

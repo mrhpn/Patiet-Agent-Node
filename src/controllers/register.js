@@ -1,24 +1,26 @@
-const mongoose = require("mongoose");
+const { Registeration } = require("../models/registeration");
 
-module.exports = (req, res) => {
-  const registeration = {
-    name: "Lisa John d",
-    gender: "male",
-    fatherName: "dddddd",
-    birthday: "07-01-1970",
-    age: "50",
-    nrcState: "1",
-    nrcTownship: "AAAAAA",
-    nrcType: "N",
-    nrcNumber: "333333",
-    visitingDate: "28-05-2020",
-    referalReason: "sdfsdfsdfsdfsdfsdfsdf",
-    disease: "heart",
-    doctor: "m-khin-maung-lwin",
-    contactPersonName: "ffdsdsd",
-    relation: "uncle",
-    contactPersonPhone: "09232342323",
-  };
+module.exports = async (req, res) => {
+  let registeration = new Registeration({
+    name: req.body.name,
+    gender: req.body.gender,
+    fatherName: req.body.fatherName,
+    birthday: req.body.birthday,
+    age: req.body.age,
+    nrcState: req.body.nrcState,
+    nrcTownship: req.body.nrcTownship,
+    nrcType: req.body.nrcType,
+    nrcNumber: req.body.nrcNumber,
+    visitingDate: req.body.visitingDate,
+    referalReason: req.body.referalReason,
+    disease: req.body.disease,
+    doctor: req.body.doctor,
+    contactPersonName: req.body.contactPersonName,
+    relation: req.body.relation,
+    contactPersonPhone: req.body.contactPersonPhone,
+  });
+
+  registeration = await registeration.save();
 
   res.render("index", {
     success: true,
