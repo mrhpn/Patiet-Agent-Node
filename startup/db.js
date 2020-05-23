@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const config = require('config');
+const config = require("config");
 
 module.exports = function () {
   const db = config.get("db");
@@ -8,6 +8,6 @@ module.exports = function () {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then(() => console.log("Connected to the database..."))
-    .catch(() => console.error("Could not connect to the database..."));
+    .then(() => console.log(`Connected to the ${db}...`))
+    .catch(() => console.error(`Could not connect to the ${db}...`));
 };
